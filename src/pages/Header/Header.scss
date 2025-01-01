@@ -1,0 +1,49 @@
+.header {
+  width: 1600px;
+  &__name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__vertical {
+    margin-top: 28px;
+    padding-left: 7px;
+    padding-bottom: 11px;
+    width: 90px;
+    height: 70px;
+    color: #ffffff;
+    font-family: Anton;
+    font-size: 60px;
+    line-height: 90.32px;
+    text-align: left;
+    background-color: #000000;
+    transform: rotate(-90deg);
+  }
+  &__horizontal {
+    margin-top: 15px;
+    width: 322px;
+    height: 124px;
+    font-family: Anton;
+    font-size: 100px;
+    text-align: left;
+    color: #000000;
+  }
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    padding: 53px 0 32px;
+    margin: 0 432px;
+  }
+  &__border {
+    max-width: 1400px;
+    height: 2px;
+    border-bottom: 1px solid #000000;
+    margin: 0 auto;
+  }
+}
+.title {
+  border: none;
+  background: none;
+  font-family: Open Sans;
+  font-size: 20px;
+}
