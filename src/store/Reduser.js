@@ -1,15 +1,23 @@
-import { SAVE_HEADER } from "./Constans";
+import { GET_CATEGORIES, GET_POSTS } from "./constans";
 
 const initialState = {
-  Header: [],
+  categories: [],
+  posts: [],
 };
-const Reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SAVE_HEADER:
+    case GET_CATEGORIES:
       return {
         ...state,
-        Header: [...state.Header, ...action.payload],
+        categoriec: action.payload,
       };
+    case GET_POSTS:
+      return {
+        ...state,
+        posts: action.payload,
+      };
+    default:
+      return state;
   }
 };
-export default Reducer;
+export default reducer;

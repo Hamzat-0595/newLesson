@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import "./HomePages.scss";
+import React, { useEffect } from "react";
 
-const src = "https://zelim-blog.onrender.com/posts";
+import "./HomePages.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { fethPosts } from "../../store/postAction";
 
 const HomePages = () => {
-  const [articles, setArticles] = useState(null);
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.category.posts);
 
   useEffect(() => {
-    axios.get(src).then((data) => {
-      setArticles(data.data);
-    });
-  });
-  if (!articles) {
+    dispatch(fethPosts());
+  }, [dispatch]);
+  if (posts.lenght) {
     return <div>Loading...</div>;
   }
 
@@ -20,31 +19,37 @@ const HomePages = () => {
     <div className="wrapper">
       <div className="pages">
         <div className="pages__left">
-          <img className="pages__img0" src={articles[0].image} />
-          <div className="content__name">
-            {articles[0].title.substring(0, 20) + "..."}
-          </div>
-          <div className="content__text">
-            {articles[0].text.substring(0, 20) + "..."}
+          <img className="pages__img0" src={posts?.[0]?.image} />
+          <div className="content">
+            <div className="pages__name">
+              {posts?.[0]?.title.substring(0, 20) + "..."}
+            </div>
+            <div className="pages__text">
+              {posts?.[0]?.text.substring(0, 20) + "..."}
+            </div>
           </div>
         </div>
-        <div className="content__right">
-          <div>
-            <img className="pages__img1" src={articles[1].image} />
-            <div className="content__name1">
-              {articles[1].title.substring(0, 20) + "..."}
-            </div>
-            <div className="content__text1">
-              {articles[1].text.substring(0, 20) + "..."}
+        <div className="pages__right">
+          <div className="container">
+            <img className="pages__img1" src={posts?.[1]?.image} />
+            <div className="content">
+              <div className="pages__name1">
+                {posts?.[1]?.title.substring(0, 20) + "..."}
+              </div>
+              <div className="pages__text1">
+                {posts?.[1]?.text.substring(0, 20) + "..."}
+              </div>
             </div>
           </div>
-          <div>
-            <img className="pages__img2" src={articles[2].image} />
-            <div className="content__name2">
-              {articles[2].title.substring(0, 20) + "..."}
-            </div>
-            <div className="content__text2">
-              {articles[2].text.substring(0, 20) + "..."}
+          <div className="container__botom">
+            <img className="pages__img2" src={posts?.[2]?.image} />
+            <div className="content">
+              <div className="pages__name2">
+                {posts?.[2]?.title.substring(0, 20) + "..."}
+              </div>
+              <div className="pages__text2">
+                {posts?.[2]?.text.substring(0, 20) + "..."}
+              </div>
             </div>
           </div>
         </div>
@@ -53,23 +58,21 @@ const HomePages = () => {
       <h1>Последние новости в мире IT</h1>
       <div className="itNew">
         <div className="itNew__wrapper">
-          <img className="itNew__img1" src={articles[3].image} />
-          <div className="itNew__wrapper-Content">
-            <div className="content__name3">
-              {articles[3].title.substring(0, 20) + "..."}
-            </div>
-            <div className="content__text3">
-              {articles[3].text.substring(0, 20) + "..."}
-            </div>
+          <img className="itNew__img1" src={posts?.[3]?.image} />
+          <div className="pages__name3">
+            {posts?.[3]?.title.substring(0, 20) + "..."}
+          </div>
+          <div className="pages__text3">
+            {posts?.[3]?.text.substring(0, 20) + "..."}
           </div>
         </div>
         <div className="itNew__wrapper2">
-          <img className="itNew__img2" src={articles[4].image} />
-          <div className="content__name4">
-            {articles[4].title.substring(0, 20) + "..."}
+          <img className="itNew__img2" src={posts?.[4]?.image} />
+          <div className="pages__name4">
+            {posts?.[4]?.title.substring(0, 20) + "..."}
           </div>
-          <div className="content__text4">
-            {articles[4].text.substring(0, 20) + "..."}
+          <div className="pages__text4">
+            {posts?.[4]?.text.substring(0, 20) + "....."}
           </div>
         </div>
       </div>

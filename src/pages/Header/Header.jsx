@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import "./Header.scss";
-
-const src = "https://zelim-blog.onrender.com/categories";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategory } from "../../store/categoryAction";
 
 const Header = () => {
-  const [articles, setArticles] = useState([]);
+  const dispatch = useDispatch();
+  const category = useSelector((state) => state.category.categoriec);
 
   useEffect(() => {
-    axios.get(src).then((data) => {
-      setArticles(data.data);
-    });
-    if (!articles) {
-      return <div>Loading...</div>;
-    }
-  });
+    dispatch(fetchCategory());
+  }, [dispatch]);
+
   return (
     <div className="header">
       <div className="header__name">
@@ -22,8 +18,8 @@ const Header = () => {
         <div className="header__horizontal">Unicode</div>
       </div>
       <div className="header__button">
-        {articles?.map((article) => (
-          <button className="title">{article.title}</button>
+        {category?.map((article) => (
+          <button className="title">{article?.title}</button>
         ))}
       </div>
       <div className="header__border"></div>

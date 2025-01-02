@@ -3,6 +3,9 @@
   display: flex;
   justify-content: center;
   width: 1600px;
+  &__left {
+    position: relative;
+  }
   &__img0 {
     max-width: 700px;
     height: 662px;
@@ -39,6 +42,12 @@
     font-weight: 700;
     line-height: 68.09px;
   }
+  .container {
+    position: relative;
+    &__botton {
+      position: relative;
+    }
+  }
 }
 .itNew {
   &__wrapper {
@@ -65,9 +74,7 @@
 }
 
 .content {
-  //   &__wrapper3 {
-  //     position: absolute;
-  //     margin-bottom: 100px;
-  //     z-index: 2;
-  //   }
+  margin-bottom: 15px;
+  z-index: 1;
+  position: absolute;
 }

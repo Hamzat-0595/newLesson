@@ -1,1 +1,2 @@
-export const SAVE_HEADER = "SAVE_HEADER";
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const GET_POSTS = "GET_POSTS";
