@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-
 import "./HomePages.scss";
+
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fethPosts } from "../../store/postAction";
 
 const HomePages = () => {
   const dispatch = useDispatch();
-  const posts = useSelector((state) => state.category.posts);
+  const posts = useSelector((state) => state.posts.posts);
 
   useEffect(() => {
     dispatch(fethPosts());
   }, [dispatch]);
-  if (posts.lenght) {
+  if (posts?.length === 0) {
     return <div>Loading...</div>;
   }
 

@@ -4,6 +4,7 @@ import { GET_CATEGORIES } from "./constans";
 export const fetchCategory = () => {
   return (dispatch) => {
     axios
+    
       .get("https://zelim-blog.onrender.com/categories")
       .then((response) => response.data)
       .then((data) => dispatch(addCategoryAction(data)));
